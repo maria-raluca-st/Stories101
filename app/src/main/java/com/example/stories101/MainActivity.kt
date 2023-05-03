@@ -9,6 +9,7 @@ import com.example.stories101.fragments.HomeFragment
 import com.example.stories101.fragments.ProfileFragment
 import com.example.stories101.fragments.SplashFragment
 import com.example.stories101.fragments.VideoFragment
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
 
         // Inflate the layout using view binding
         binding = ActivityMainBinding.inflate(layoutInflater)
