@@ -1,9 +1,8 @@
 package com.example.stories101.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +15,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var database: DatabaseReference
     private lateinit var storyAdapter: StoryAdapter
+    private lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +23,18 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        setHasOptionsMenu(true)
+        searchView = view.findViewById(R.id.search_view)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                storyAdapter.filter.filter(newText)
+                return true
+            }
+        })
 
         // Initialize Firebase database reference
         database = FirebaseDatabase.getInstance().getReference("stories")
