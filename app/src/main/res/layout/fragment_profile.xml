@@ -1,27 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
-<!--    android:background="@android:color/holo_purple">-->
+    tools:context=".fragments.ProfileFragment"
+    >
 
-<!--    <ImageView-->
-<!--        android:id="@+id/book_imageview"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/book_icon"-->
-<!--        android:layout_gravity="center"/>-->
+    <RelativeLayout
+        android:id="@+id/profile_fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-<!--    <TextView-->
-<!--        android:id="@+id/app_name_textview"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Stories102"-->
-<!--        android:textSize="36sp"-->
-<!--        android:textColor="@android:color/white"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        />-->
+        <!-- Logout button -->
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:text="Logout"
+            android:layout_centerInParent="true" />
 
-</FrameLayout>
+    </RelativeLayout>
+
+</layout>
